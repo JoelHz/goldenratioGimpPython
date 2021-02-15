@@ -65,12 +65,12 @@ def phiValue():
      return (1 + math.sqrt(5))/2.0
 
 def ratiocalculation(currimg,wdbrush,phi):
-    grarray = []
     a = currimg.width
     if currimg.height > currimg.width :
         a = currimg.height
     b = 5*a
     limit = pow(wdbrush,4)
+    grarray = [a]
     while a > limit and (b - a ) >  limit :
         b = a
         a = a*(phi-1.0)
@@ -116,7 +116,7 @@ def addguidelines(gldivis,currimg):
         advperc += 1.0/totallines
         pdb.gimp_progress_update(round(advperc,2))
         showadvance(round(advperc*100,2),activity)
-    pdb.gimp_context_set_foreground("#574E82")
+    pdb.gimp_context_set_foreground("#FFC29B")
     crosspoints = [(0.0,0.0,1.0,1.0),(0.0,1.0,1.0,0.0),(0.5,0.0,1.0,0.5),(0.0,0.5,0.5,1.0),(0.5,0.0,0.0,0.5),(1.0,0.5,0.5,1.0)]
     # diagonal lines
     for crosspoint in crosspoints:
@@ -184,9 +184,9 @@ def glcolorsqr(div):
     if div == 0.5:
         pdb.gimp_context_set_foreground("#C93756")
     elif div == 0.25 or div == 0.75:
-          pdb.gimp_context_set_foreground("#E74C3C")
+          pdb.gimp_context_set_foreground("#39D5FF")
     else:
-        pdb.gimp_context_set_foreground("#824885")
+        pdb.gimp_context_set_foreground("#5EFCA1")
 
 def circlelayers(grarray,currimg,wdbrush):
     advperc = 0
